@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio Digital</title>
+    <link rel="stylesheet" href="Relogio.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Horário Atual</h1>
+        <select id="timezone-select">
+            <option value="-4">Manaus</option>
+            <option value="-3">São Paulo</option>
+            <option value="-3">Brasília</option>
+            <option value="1">Lisboa</option>
+            <option value="-4">Miami</option>
+            <option value="-4">Flórida</option>
+            <option value="2">Madrid</option>
+            <option value="2">Barcelona</option>
+            <option value="3">Moscou</option> <!-- Adicione esta linha para Moscou -->
+            <!-- Adicione as seguintes linhas para as novas cidades -->
+            <option value="-5">Nova York</option>
+            <option value="1">Berlim</option>
+            <option value="1">Paris</option>
+            <option value="9">Tóquio</option>
+            <option value="10">hong Kong</option>
+            <option value="11"> las Vegas</option>
+           <option value="12"> berna/Suíça</option>
+            <option value="13">seul</option>
+            <option value="14">Pyongyang</option>
+             <option value="15">roma</option>
+             <option value="16">dubai</option>
+             <option value="17">osaka</option>
+             <option value="18">buenos aires </option>
+             
+             
+            
+        </select>
+        <div id="clock" class="clock"></div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const timezoneOffset = parseInt(document.getElementById('timezone-select').value);
+            const utcHours = now.getUTCHours();
+            const localHours = (utcHours + timezoneOffset + 24) % 24;
+            const hours = String(localHours).padStart(2, '0');
+            const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+            const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        // Chame a função updateClock a cada segundo
+        setInterval(updateClock, 1000);
+
+        // Chame a função updateClock inicialmente para exibir o horário imediatamente
+        updateClock();
+    </script>
+</body>
+</html>
