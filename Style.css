@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #282c34;
+    color: #61dafb;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    padding-bottom: 20px;
+    font-size: 2em;
+}
+
+#timezone-select {
+    margin-bottom: 20px;
+    font-size: 1em;
+    padding: 5px;
+}
+
+.clock {
+    font-size: 5em;
+}
